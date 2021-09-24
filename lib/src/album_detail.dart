@@ -43,6 +43,7 @@ class AlbumDetail extends StatelessWidget {
 class _AlbumHeader extends SliverPersistentHeaderDelegate{
   final double _maxExtent = 350;
   final double _minExtent = 100;
+  
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     // TODO: implement build
@@ -51,16 +52,27 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
       child: Stack(
         children: [
           Positioned(
-          right: 30.0,
-          bottom: 30.0,
-          height: 200.0,
-          child: Image.asset(album.imageDisc),
+            right: 30.0,
+            bottom: 30.0,
+            height: 180.0,
+            child: Image.asset(album.imageDisc),
           ),
           Positioned(
-          left: 30.0,
-          bottom: 30.0,
-          height: 200.0,
-          child: Image.asset(album.imageAlbum),
+            left: 30.0,
+            bottom: 30.0,
+            height: 180.0,
+            child: Image.asset(album.imageAlbum),
+          ),
+          Positioned(
+            left: 100.0,
+            top: 50.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(album.artist, style: const TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold)),
+                Text(album.album,  style: const TextStyle(color: Colors.grey,  fontSize: 25, fontWeight: FontWeight.w400)),
+              ],
+            ),
           ),
         ],
       ),
