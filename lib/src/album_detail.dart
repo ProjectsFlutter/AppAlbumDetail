@@ -48,6 +48,22 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
     // TODO: implement build
     return Container(
       color: const Color(0xFFECECEA),
+      child: Stack(
+        children: [
+          Positioned(
+          right: 30.0,
+          bottom: 30.0,
+          height: 200.0,
+          child: Image.asset(album.imageDisc),
+          ),
+          Positioned(
+          left: 30.0,
+          bottom: 30.0,
+          height: 200.0,
+          child: Image.asset(album.imageAlbum),
+          ),
+        ],
+      ),
     );
   }
 
