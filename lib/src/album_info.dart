@@ -14,18 +14,9 @@ final album = Album(
   album: 'Reputation',
   imageAlbum: 'assets/album.jpg',
   imageDisc: 'assets/disc.png',
-  description: r'''
-  On August 18, 2017, Swift wiped all posts from her social media accounts, as well as her official website.
-  A few days later, Swift posted a series of clips of a snake, which referenced her feuds with Kanye West, Katy Perry, Calvin Harris, and Kim Kardashian the previous year.
-  Fans speculated that Swift was about to announce an upcoming album.
-  On August 23, Swift announced the album on her Instagram, revealing the album cover art and release date.
-  Reputation was released on November 10, 2017. The album's lead single, "Look What You Made Me Do", was released on August 25, 2017.
-  The album was also released with two editions of a magazine, also titled Reputation, and available exclusively at Target.
+  description: r'''On August 18, 2017, Swift wiped all posts from her social media accounts, as well as her official website. A few days later, Swift posted a series of clips of a snake, which referenced her feuds with Kanye West, Katy Perry, Calvin Harris, and Kim Kardashian the previous year. Fans speculated that Swift was about to announce an upcoming album. On August 23, Swift announced the album on her Instagram, revealing the album cover art and release date.
 
-  Taylor has done a lot of marketing for her new album through surprise visits on Instagram to her fans as well as stalking fans and inviting 20 of them to listen to her Reputation album in London.
-  This has led to Swift being the only person to debut four albums that are certified platinum, following 1989 (1.29M units), Red (1.21M units), and Speak Now (1.05M units) since 1991. 
-  The album debuted at number one on Billboard 200 during the week of December 2, 2017. 
-  In addition to that, reputation also sold more than the combined sales of the 199 albums on Billboard 200 for that week.
+Taylor has done a lot of marketing for her new album through surprise visits on Instagram to her fans as well as stalking fans and inviting 20 of them to listen to her Reputation album in London. This has led to Swift being the only person to debut four albums that are certified platinum, following 1989 (1.29M units), Red (1.21M units), and Speak Now (1.05M units) since 1991. The album debuted at number one on Billboard 200 during the week of December 2, 2017. In addition to that, reputation also sold more than the combined sales of the 199 albums on Billboard 200 for that week.
 
   Singles
 
