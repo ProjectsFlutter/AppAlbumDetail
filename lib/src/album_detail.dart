@@ -43,29 +43,44 @@ class AlbumDetail extends StatelessWidget {
 
 class _AlbumHeader extends SliverPersistentHeaderDelegate{
   final _maxHeader = 350.0;
-  final _minHeader = 100.0;
+  final _minHeader = 130.0;
   
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     // TODO: implement build
     final _size = MediaQuery.of(context).size;
 
-    const _maxImage = 180.0;
-    const _minImage = 80.0;
+    const _maxImage       = 180.0;
+    const _minImage       = 80.0;
 
-    const _maxLeftDisc = 150.0;
-    const _minLeftDisc = 32.0;
+    const _maxArtistName  = 30.0;
+    const _minArtistName  = 25.0;
 
-    const _maxArtistName = 30.0;
-    const _minArtistName = 20.0;
+    const _maxAlbumName   = 25.0;
+    const _minAlbumName   = 20.0;
 
-    const _maxAlbumName = 25.0;
-    const _minAlbumName = 15.0;
+    const _maxLeftDisc    = 150.0;
+    const _minLeftDisc    = 50.0;
+
+    const _maxLeftAlbum   = 50.0;
+    const _minLeftAlbum   = 30.0;
+
+    const _maxTopImage    = 140.0;
+    const _minTopImage    = 25.0;
+
+    const _maxLeftTitle   = 80.0;
+    // const _minLeftTitle   = 80.0;
 
     final _percent = shrinkOffset / _maxHeader;
 
-    final _sizeImage = (_maxImage * (1 - _percent)).clamp(_minImage, _maxImage);
-    final _sizeLeftDisc = (_maxLeftDisc * (1 - _percent)).clamp(_minLeftDisc, _maxLeftDisc);
+    final _sizeImage      = (_maxImage      * (1 - _percent)).clamp(_minImage,      _maxImage);
+    final _sizeArtistName = (_maxArtistName * (1 - _percent)).clamp(_minArtistName, _maxArtistName);
+    final _sizeAlbumName  = (_maxArtistName * (1 - _percent)).clamp(_minAlbumName,  _maxAlbumName);
+    final _sizeLeftDisc   = (_maxLeftDisc   * (1 - _percent)).clamp(_minLeftDisc,   _maxLeftDisc);
+    final _sizeTopImage   = (_maxTopImage   * (1 - _percent)).clamp(_minTopImage,   _maxTopImage);
+
+    final _sizeLeftAlbum  = (_maxLeftDisc   * _percent).clamp(_minLeftAlbum, _maxLeftAlbum);
+    final _sizeLeftTitle  = ((_size.width * 0.2) + ( _maxLeftTitle * _percent));
 
     return Container(
       color: const Color(0xFFECECEA),
@@ -73,7 +88,7 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
         children: [
           Positioned(
             left: _sizeLeftDisc,
-            bottom: _size.height * 0.05,
+            top: _sizeTopImage,
             height: _sizeImage,
             child: Transform.rotate(
               angle: vector.radians(360 * _percent),
@@ -81,19 +96,19 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
             ),
           ),
           Positioned(
-            left: _size.height * 0.05,
-            bottom: _size.height * 0.05,
+            left: _sizeLeftAlbum,
+            top: _sizeTopImage,
             height: _sizeImage,
             child: Image.asset(album.imageAlbum),
           ),
           Positioned(
-            left: 100.0,
-            top: 50.0,
+            left: _sizeLeftTitle,
+            top: 40.0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(album.artist, style: const TextStyle(color: Colors.black, fontSize: _maxArtistName, fontWeight: FontWeight.bold)),
-                Text(album.album,  style: const TextStyle(color: Colors.grey,  fontSize: _maxAlbumName, fontWeight: FontWeight.w400)),
+                Text(album.artist, style: TextStyle(color: Colors.black, fontSize: _sizeArtistName, fontWeight: FontWeight.bold)),
+                Text(album.album,  style: TextStyle(color: Colors.grey,  fontSize: _sizeAlbumName, fontWeight: FontWeight.w400)),
               ],
             ),
           ),
