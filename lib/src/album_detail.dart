@@ -42,7 +42,7 @@ class AlbumDetail extends StatelessWidget {
 }
 
 class _AlbumHeader extends SliverPersistentHeaderDelegate{
-  final _maxHeader = 350.0;
+  final _maxHeader = 360.0;
   final _minHeader = 130.0;
   
   @override
@@ -59,16 +59,19 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
     const _maxAlbumName   = 25.0;
     const _minAlbumName   = 20.0;
 
-    const _maxLeftDisc    = 150.0;
-    const _minLeftDisc    = 50.0;
+    const _maxLeftDisc    = -76.0;
+    // const _minLeftDisc    = 70.0;
 
     const _maxLeftAlbum   = 50.0;
-    const _minLeftAlbum   = 30.0;
+    // const _minLeftAlbum   = 30.0;
 
-    const _maxTopImage    = 140.0;
+    const _maxTopImage    = 150.0;
     const _minTopImage    = 25.0;
 
-    const _maxLeftTitle   = 80.0;
+    const _maxTopTitle    = 60.0;
+    const _minTopTitle    = 40.0;
+
+    const _maxLeftTitle   = 100.0;
     // const _minLeftTitle   = 80.0;
 
     final _percent = shrinkOffset / _maxHeader;
@@ -76,16 +79,25 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
     final _sizeImage      = (_maxImage      * (1 - _percent)).clamp(_minImage,      _maxImage);
     final _sizeArtistName = (_maxArtistName * (1 - _percent)).clamp(_minArtistName, _maxArtistName);
     final _sizeAlbumName  = (_maxArtistName * (1 - _percent)).clamp(_minAlbumName,  _maxAlbumName);
-    final _sizeLeftDisc   = (_maxLeftDisc   * (1 - _percent)).clamp(_minLeftDisc,   _maxLeftDisc);
     final _sizeTopImage   = (_maxTopImage   * (1 - _percent)).clamp(_minTopImage,   _maxTopImage);
-
-    final _sizeLeftAlbum  = (_maxLeftDisc   * _percent).clamp(_minLeftAlbum, _maxLeftAlbum);
-    final _sizeLeftTitle  = ((_size.width * 0.2) + ( _maxLeftTitle * _percent));
+    final _sizeTopTitle   = (_maxTopTitle   * (1 - _percent)).clamp(_minTopTitle,   _maxTopTitle);
+    final _sizeLeftDisc   = ((_size.width * 0.43) + ( _maxLeftDisc  * _percent));
+    final _sizeLeftAlbum  = ((_size.width * 0.08) + ( _maxLeftAlbum * _percent));
+    final _sizeLeftTitle  = ((_size.width * 0.2)  + ( _maxLeftTitle * _percent));
 
     return Container(
       color: const Color(0xFFECECEA),
       child: Stack(
         children: [
+          Positioned(
+            left: _size.width * 0.030,
+            top: _size.height * 0.015,
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back_sharp),
+              color: Colors.black,
+              onPressed: () {},
+          )
+          ),
           Positioned(
             left: _sizeLeftDisc,
             top: _sizeTopImage,
@@ -103,7 +115,7 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
           ),
           Positioned(
             left: _sizeLeftTitle,
-            top: 40.0,
+            top: _sizeTopTitle,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
