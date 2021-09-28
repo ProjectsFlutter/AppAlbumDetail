@@ -56,10 +56,10 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
     const _minLeftAlbum   = 60.0;
     const _minLeftTitle   = 90.0;
 
-    final _maxAlbumImage  = _size.height * 0.30;
+    final _maxAlbumImage  = _size.height * 0.27;
     final _minAlbumImage  = _size.height * 0.125;
 
-    final _maxDiscImage   = _size.height * 0.29;
+    final _maxDiscImage   = _size.height * 0.26;
 
     final _maxArtistName  = _size.height * 0.05;
     final _minArtistName  = _size.height * 0.04;
@@ -68,7 +68,7 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
     final _minAlbumName   = _size.height * 0.03;
 
     final _maxTopTitle    = _size.height * 0.08;
-    final _minTopTitle    = _size.height * 0.056;
+    final _minTopTitle    = _size.height * 0.045;
 
 
 
@@ -89,11 +89,11 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
 
     return Container(
       color: const Color(0xFFECECEA),
+      padding: const EdgeInsets.only(top: 10.0),
       child: Stack(
         children: [
           Positioned(
             left: _size.width * 0.030,
-            top: _size.height * 0.015,
             child: IconButton(
               icon: const Icon(Icons.arrow_back_sharp),
               color: Colors.black,
