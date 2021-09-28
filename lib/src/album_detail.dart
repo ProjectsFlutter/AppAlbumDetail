@@ -50,25 +50,41 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
     // TODO: implement build
 
     final _size = MediaQuery.of(context).size;
-
-    const _minLeftDisc       = -690.0;
-    const _minLeftAlbum      = 60.0;
-    const _minLeftTitle      = 90.0;
-
     final _percent = shrinkOffset / _maxHeader;
 
-    double _sizeAlbumImage         = (180 * (1 - _percent)).clamp(77, 180);
-    double _sizeDiscImage          = (175 * (1 - _percent));
+    const _minLeftDisc    = -690.0;
+    const _minLeftAlbum   = 60.0;
+    const _minLeftTitle   = 90.0;
 
-    double _sizeArtistName         = (30 * (1 - _percent)).clamp(25, 30);
-    double _sizeAlbumName          = (25 * (1 - _percent)).clamp(20, 25);
+    final _maxAlbumImage  = _size.height * 0.30;
+    final _minAlbumImage  = _size.height * 0.125;
 
-    double _sizeBottomAlbumImage   = 30;
-    double _sizeBottomDiscImage    = 30;
-    double _sizeTopTitle           = (55 * (1 - _percent)).clamp(35, 55);
+    final _maxDiscImage   = _size.height * 0.29;
+
+    final _maxArtistName  = _size.height * 0.05;
+    final _minArtistName  = _size.height * 0.04;
+
+    final _maxAlbumName   = _size.height * 0.04;
+    final _minAlbumName   = _size.height * 0.03;
+
+    final _maxTopTitle    = _size.height * 0.08;
+    final _minTopTitle    = _size.height * 0.056;
+
+
+
+    double _sizeAlbumImage         = (_maxAlbumImage * (1 - _percent)).clamp(_minAlbumImage, _maxAlbumImage);
+    double _sizeDiscImage          = (_maxDiscImage  * (1 - _percent));
+
+    double _sizeArtistName         = (_maxArtistName * (1 - _percent)).clamp(_minArtistName, _maxArtistName);
+    double _sizeAlbumName          = (_maxAlbumName  * (1 - _percent)).clamp(_minAlbumName,  _maxAlbumName);
+
+    double _sizeBottomAlbumImage   = _size.height * 0.04;
+    double _sizeBottomDiscImage    = _size.height * 0.04;
+
+    double _sizeTopTitle           = (_maxTopTitle * (1 - _percent)).clamp(_minTopTitle, _maxTopTitle);
 
     final _sizeLeftDisc            = ((_size.width * 0.45)  + ( _minLeftDisc  * _percent));
-    final _sizeLeftAlbum           = ((_size.width * 0.02)  + ( _minLeftAlbum * (_percent + 0.5).clamp(0.0, 1.0)));
+    final _sizeLeftAlbum           = ((_size.width * 0.02)  + ( _minLeftAlbum * (_percent + 0.4).clamp(0.0, 1.0)));
     final _sizeLeftTitle           = ((_size.width * 0.20)  + ( _minLeftTitle * (_percent + 0.8).clamp(0.0, 1.0)));
 
     return Container(
@@ -89,7 +105,7 @@ class _AlbumHeader extends SliverPersistentHeaderDelegate{
             bottom: _sizeBottomDiscImage,
             height: _sizeDiscImage,
             child: Opacity(
-              opacity: _percent < 0.17 ? 1.0 : 0.0,
+              opacity: _percent < 0.16 ? 1.0 : 0.0,
               child: Transform.rotate(
                 angle: vector.radians(-360 * _percent),
                 child: Image.asset(album.imageDisc)
